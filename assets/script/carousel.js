@@ -12,7 +12,7 @@ function getItemsPerSlide() {
 
 function getGapSize() {
     const style = window.getComputedStyle(carouselContainer);
-    const gap = parseFloat(style.columnGap || style.gap) || 0; // Fallback to 0 if not set
+    const gap = parseFloat(style.columnGap || style.gap) || 0;
     return gap;
 }
 
@@ -100,7 +100,7 @@ carouselContainer.addEventListener('mouseleave', () => {
 });
 
 window.addEventListener('resize', () => {
-    currentIndex = 0; // Reset index on resize
+    currentIndex = 0;
     updateCarousel();
 });
 

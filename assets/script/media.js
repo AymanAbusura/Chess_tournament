@@ -68,8 +68,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (!h1Element.querySelector('span.timeline-section__description')) {
                         if (pElement) {
                             const spanElement = document.createElement('span');
-                            spanElement.className = pElement.className; // Копируем классы из <p>
-                            spanElement.innerHTML = pElement.innerHTML; // Копируем содержимое из <p>
+                            spanElement.className = pElement.className;
+                            spanElement.innerHTML = pElement.innerHTML;
 
                             h1Element.appendChild(spanElement);
 
