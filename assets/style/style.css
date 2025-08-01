@@ -84,11 +84,17 @@ section{
     height: 100%;
 }
 
-.hero{
+.hero-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.hero {
     padding-top: 9rem;
     position: relative;
     width: 100%;
-    background: url(../img/hero-mobile.png);
+    background: url("../img/hero-mobile.png");
     background-repeat: no-repeat;
     background-size: 100% 812px;
     margin: 0 auto;
@@ -190,10 +196,10 @@ section{
     font-variant-numeric: lining-nums proportional-nums;
 }
 
-.marquee{
+.marquee {
     background: #F54932;
     margin: 0 auto;
-    position: absolute;
+    position: relative;
     bottom: 0;
     left: 50%;
     -webkit-transform: translate(-50%, 0);
@@ -206,9 +212,13 @@ section{
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    max-height: 3.8rem;
+    height: 3.8rem;
     overflow: hidden;
     white-space: nowrap;
+}
+
+.marquee-1 {
+    bottom: 38px;
 }
 
 .marquee__text{
@@ -245,8 +255,6 @@ section{
     color: #fff; 
   }
 
-
-
 @-webkit-keyframes marquee {
     0% {
         -webkit-transform: translateX(-100%);
@@ -259,8 +267,6 @@ section{
     }
 
 }
-
-
 
 @keyframes marquee {
     0% {
@@ -390,8 +396,15 @@ section{
             flex-direction: row !important;
 }
 
+.tournament-section__item_description > article:nth-of-type(5) {
+  border-bottom: none;
+}
+
+
 .old-price{
+    position: relative;
     text-decoration: line-through;
+    text-decoration-color: red;
 }
 
 .support-text{
@@ -452,7 +465,7 @@ section{
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    background: url(../img/bg-card-mob.png);
+    background: url("../img/bg-card-mob.png");
     background-repeat: no-repeat;
     background-size: cover;
     height: 30rem;
@@ -666,6 +679,7 @@ section{
     margin: 2.1rem auto 0 auto;
     border: .1rem solid #3057A2;
     border-radius: 6.2rem;
+    color: #3057A2;
 }
 
 .carousel-controller{
@@ -721,9 +735,6 @@ section{
     opacity: 0.6;
 }
 
-
-/* margins */
-
 .hero > .container > .description > .title__first{
     margin-bottom: 2.4rem;
 }
@@ -736,28 +747,16 @@ section{
     margin-top: .4rem;
 }
 
-
-
 @media screen and (min-width: 768px) and (max-width: 996px) {
     .hero{
-        background-image: url(../img/hero-desk.png);
+        background-image: url("../img/hero-desk.png");
         background-size: cover;
         background-position: center center;
         padding-bottom: 12rem;
     }
 }
 
-
-
-
-
-
-
-
-
-
 @media screen and (min-width: 768px) {
-
     .header{
         padding: 2.8rem;
     }
@@ -781,10 +780,10 @@ section{
         padding-top: 12.4rem;
         padding-bottom: 20.8rem;
         max-height: auto;
-        background-image: url(../img/hero-desk.png);
+        background-image: url("../img/hero-desk.png");
         background-size: cover;
         background-position: center center;
-        max-height: 76rem;
+        min-height: 86rem;
     }
 
     .title__first{
@@ -841,12 +840,13 @@ section{
         background-color: #1F1F1F;
     }
 
-
     .hero  > .container > .description > .description-text{
         margin-bottom: 3.9rem;
     }
 
-
+    .marquee-1 {
+        bottom: 0;
+    }
 
     .marquee__text li{
         font-size: 2.2rem;
@@ -867,8 +867,6 @@ section{
     .tournament-section__item > .title__second{
         max-width: 76.4rem;
     }
-
-
 
     .tournament-section__item:nth-child(1n){
         -webkit-box-align: center;
@@ -969,7 +967,7 @@ section{
 
     .timeline-section__description{
         width: 100%;
-        max-width: 33rem;
+        max-width: 28rem;
         display: -webkit-inline-box;
         display: -ms-inline-flexbox;
         display: inline-flex;
@@ -984,7 +982,6 @@ section{
                 transform: translate(.7rem, -2.8rem);
     }
 
-
     .slider{
         width: 100%;
         overflow:visible;
@@ -995,7 +992,6 @@ section{
         width: 100%;
         max-width: 122.2rem;
     }
-
 
     .slider__card_img{
         top:auto;
@@ -1008,7 +1004,6 @@ section{
         height: auto;
     }
 
-
     .slider__item{
         background: none;
         height: auto;
@@ -1016,6 +1011,7 @@ section{
         width: 100%;
         max-width: 122.2rem;
     }
+
     .combined-wrapper {
         display: -ms-grid;
         display: grid;
@@ -1025,6 +1021,7 @@ section{
         grid-template-rows: auto;
         grid-gap: 2rem;
     }
+
     .combined-wrapper > *:nth-child(1) {
         -ms-grid-row: 1;
         -ms-grid-column: 1;
@@ -1032,7 +1029,8 @@ section{
     
     .timeline__list {
         padding: 2rem;
-        background-image: url(../img/bg-card-mob.png);
+        background-image: url("../img/bg-card-mob.png");
+        background-size: cover;
         width: 100%;
     }
     
@@ -1103,29 +1101,31 @@ section{
         width: 100%;
     }
     
-    .slider-controller{
+    .slider-controller {
         display: none;
     }
 
-    .slider-controller{
+    .slider-controller {
         display: none;
     }
 
-    .participants{
+    .participants {
         padding-top: 16rem;
         padding-bottom: 14rem;
     }
-    .participants > .container .wrapper > h1{
+    .participants > .container .wrapper > h1 {
         max-width: 100%;
         font-size: 5.4rem;
         -webkit-box-pack: justify;
             -ms-flex-pack: justify;
                 justify-content: space-between;
     }
-    .carousel{
+
+    .carousel {
         max-width: 122.2rem;
     }
-    .carousel__container{
+
+    .carousel__container {
         padding: 2rem 0 0 0;
         width: 100%;
         display: -webkit-box;
@@ -1141,34 +1141,34 @@ section{
         padding: 0 3.7rem 0 3.7rem;
     }
 
-    .person__avatar{
+    .person__avatar {
         max-width: 32rem;
         max-height: 32rem;
     }
-    .person__name{
+    .person__name {
         margin: 2.7rem 0 1rem 0;
     }
-    .btn__learn-more{
+    .btn__learn-more {
         margin-top: 1.6rem;
         -webkit-transition: all .5s ease-in-out;
         -o-transition: all .5s ease-in-out;
         transition: all .5s ease-in-out;
     }
-    .btn__learn-more:hover{
+    .btn__learn-more:hover {
         border: 1px solid #3057A2;
         background: #3057A2;
         color: #fff;
     }
     
-    .container{
+    .container {
         position: relative;
     }
-    .wrapper{
+    .wrapper {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
     }
-    .carousel-controller{
+    .carousel-controller {
         max-width: 15.1rem;
         width: 100%;
         margin-top: 0;
@@ -1176,7 +1176,7 @@ section{
             -ms-flex-align: center;
                 align-items: center;
     }
-    .btn__carousel-prev, .btn__carousel-next{
+    .btn__carousel-prev, .btn__carousel-next {
         max-width: 4.4rem;
         height: 4.4rem;
         cursor: pointer;
@@ -1184,8 +1184,25 @@ section{
         -o-transition: all .5s ease-in-out;
         transition: all .5s ease-in-out;
     }
-    .btn__carousel-prev:hover, .btn__carousel-next:hover{
+    .btn__carousel-prev:hover, .btn__carousel-next:hover {
         background: #FBCE51;
     }
+}
 
+@media screen and (width: 768px) {
+    .container {
+        padding: 0 2.2rem;
+    }
+
+    .tournament-section__item:nth-child(1n) {
+        gap: 4rem;
+    }
+
+    .slider__card_img {
+        display: none;
+    }
+
+    .timeline__list {
+        gap: 0.9rem;
+    }
 }
